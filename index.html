@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlowPilot SaaS</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar-content">
+        <h1>FlowPilot</h1>
+        <button id="themeToggle" class="btn btn-ghost" aria-label="Toggle theme">🌙</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero card">
+        <div>
+          <p class="eyebrow">Simple SaaS Dashboard</p>
+          <h2>Track subscriptions and monthly recurring revenue.</h2>
+          <p>
+            Add your customers, assign a plan, and instantly see projected MRR growth.
+          </p>
+        </div>
+        <div class="stats-grid" id="statsGrid">
+          <article>
+            <h3 id="customersCount">0</h3>
+            <p>Customers</p>
+          </article>
+          <article>
+            <h3 id="mrrValue">$0</h3>
+            <p>MRR</p>
+          </article>
+          <article>
+            <h3 id="arrValue">$0</h3>
+            <p>ARR</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="layout">
+        <section class="card form-card">
+          <h3>Add Customer</h3>
+          <form id="customerForm">
+            <label>
+              Company Name
+              <input type="text" id="companyName" required placeholder="Acme Inc." />
+            </label>
+            <label>
+              Plan
+              <select id="planTier" required>
+                <option value="29">Starter — $29/mo</option>
+                <option value="79">Growth — $79/mo</option>
+                <option value="199">Scale — $199/mo</option>
+              </select>
+            </label>
+            <label>
+              Seats
+              <input type="number" id="seats" min="1" value="1" required />
+            </label>
+            <button class="btn btn-primary" type="submit">Add Subscription</button>
+          </form>
+        </section>
+
+        <section class="card table-card">
+          <div class="table-header">
+            <h3>Subscriptions</h3>
+            <button id="seedBtn" class="btn btn-ghost" type="button">Load Demo Data</button>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Company</th>
+                <th>Plan</th>
+                <th>Seats</th>
+                <th>Monthly</th>
+              </tr>
+            </thead>
+            <tbody id="subscriptionsBody">
+              <tr class="empty-row">
+                <td colspan="4">No customers yet. Add one to get started.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
